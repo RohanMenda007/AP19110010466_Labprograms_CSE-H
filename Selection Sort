@@ -1,0 +1,43 @@
+// Write a program for the Selection sort algorithm in C.
+#include <stdio.h>
+void selectionSort(int arr[], int size);
+void swap(int *x, int *y);
+void selectionSort(int arr[], int size)
+{
+    int i, j;
+    for (i=0 ; i<size; i++)
+    {
+        for (j=i ; j<size; j++)
+        {
+            if (arr[i] > arr[j])
+                {
+                  swap(&arr[i],&arr[j]);
+                }
+        }
+    }
+}
+void swap(int *x, int *y)
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+int main()
+{
+    int array[10],i,size;
+    printf("Enter number of elements:");
+    scanf("%d",&size);
+    printf("Enter %d numbers:\n",size);
+    for (i = 0; i < size; i++)
+    {
+      scanf("%d", &array[i]);
+    }
+    selectionSort(array, size);
+    printf("\nSorted array is:\n");
+    for (i = 0; i<size; i++)
+    {
+      printf("%d\n", array[i]);
+    }
+    return 0;
+}
